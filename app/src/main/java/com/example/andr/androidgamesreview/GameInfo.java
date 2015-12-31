@@ -3,6 +3,7 @@ package com.example.andr.androidgamesreview;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
  */
 public class GameInfo extends Fragment {
 
+    String ARG_POSITION = "gameName";
 
     public GameInfo() {
         // Required empty public constructor
@@ -22,7 +24,10 @@ public class GameInfo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Bundle args = getArguments();
+        Integer argsInt = args.getInt(ARG_POSITION);
+        Log.d("Arg Position", argsInt.toString());
+
         return inflater.inflate(R.layout.fragment_game_info, container, false);
     }
 
