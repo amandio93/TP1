@@ -4,11 +4,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.util.List;
 
 
 /**
@@ -20,16 +23,18 @@ public class listaDeJogosFragment extends ListFragment {
         // Required empty public constructor
     }
 
-    String[] values = new String[] { "Jogo1", "Jogo2", "Jogo3" };
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //gameListName = (ListView)view.findViewById(R.id.gameListName);
+        DatabaseHandler db = new DatabaseHandler(getContext());
+        List<Jogo> jogos = db.getAllJogos();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1);
+        for (Jogo cn : jogos) {
+            adapter.add(cn.get_nome_jogo());
+        }
         setListAdapter(adapter);
 
         return super.onCreateView(inflater, container, savedInstanceState);
@@ -40,7 +45,7 @@ public class listaDeJogosFragment extends ListFragment {
         // Create fragment and give it an argument specifying the article it should show
         GameInfo gameInfoFragment = new GameInfo();
         Bundle args = new Bundle();
-        args.putInt("gameName", position);
+        args.putString(GameInfo.ARG_POSITION, String.valueOf(position));
         gameInfoFragment.setArguments(args);
 
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     public String buttonName;
@@ -21,7 +23,18 @@ public class MainActivity extends AppCompatActivity {
         btnCategoria.setOnClickListener(myOnlyhandler);
         btnProdutora.setOnClickListener(myOnlyhandler);*/
 
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Categoria> categorias = db.getAllCategorias();
+        List<Produtora> produtoras = db.getAllProdutoras();
+        List<Jogo> jogos = db.getAllJogos();
 
+        if (categorias.size() == 0){
+            insert_Dados();
+        } else if (produtoras.size() == 0){
+            insert_Dados();
+        } else if(jogos.size() == 0){
+            insert_Dados();
+        }
 
     }
 
@@ -57,6 +70,21 @@ public class MainActivity extends AppCompatActivity {
         Intent fragmentLocal = new Intent(this, FragmentLocal.class);
         fragmentLocal.putExtra("btnName", "produtora");
         startActivity(fragmentLocal);
+    }
+
+    public void insert_Dados(){
+        DatabaseHandler db = new DatabaseHandler(this);
+        db.addCategoria(new Categoria("FPS"));
+        db.addCategoria(new Categoria("MMO"));
+        db.addCategoria(new Categoria("Acção"));
+
+        db.addProdutora(new Produtora("Jogos SA"));
+        db.addProdutora(new Produtora("Android SA"));
+        db.addProdutora(new Produtora("Games LDA"));
+
+        db.addJogo(new Jogo("Tiro ao alvo", "Isto é um jogo de tiro ao alvo", 3.9, "tiro.jpg", "www.youtube.com", "1", "1"));
+        db.addJogo(new Jogo("WoW", "Isto é um jogo de WOW", 5, "wow.jpg", "www.youtube.com", "3", "2"));
+        db.addJogo(new Jogo("ActionMan", "Isto é um jogo de Accção", 2, "actionman.jpg", "www.youtube.com", "3", "3"));
     }
 
 

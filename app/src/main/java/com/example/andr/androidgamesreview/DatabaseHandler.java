@@ -79,10 +79,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 " ON UPDATE CASCADE ON DELETE CASCADE)";
         db.execSQL(CREATE_TABLE_JOGOS);
 
-        addCategoria(new Categoria("FPS"));
-        addCategoria(new Categoria("MMO"));
-        addCategoria(new Categoria("Acção"));
-
     }
     // Actualizando a base de dados
     @Override
@@ -149,5 +145,63 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return categoriaList;
     }
 
+    public List<Produtora> getAllProdutoras() {
+        List<Produtora> produtoraList = new ArrayList<Produtora>();
+        // query
+        String selectQuery = "SELECT produtora FROM " + TABELA_PRODUTORAS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Percorendo o resultado da query
+        if (cursor.moveToFirst()) {
+            do {
+                Produtora produtora = new Produtora();
+                produtora.set_nome_produtora(cursor.getString(0));
+                // Adicionado o contacto
+                produtoraList.add(produtora);
+            } while (cursor.moveToNext());
+        }
+        return produtoraList;
+    }
 
+    public List<Jogo> getAllJogos() {
+        List<Jogo> jogosList = new ArrayList<Jogo>();
+        // query
+        String selectQuery = "SELECT nome_jogo FROM " + TABELA_JOGOS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Percorendo o resultado da query
+        if (cursor.moveToFirst()) {
+            do {
+                Jogo jogo = new Jogo();
+                jogo.set_nome_jogo(cursor.getString(0));
+                // Adicionado o contacto
+                jogosList.add(jogo);
+            } while (cursor.moveToNext());
+        }
+        return jogosList;
+    }
+
+    public List<Jogo> getAllJogos(String CodJogo) {
+        List<Jogo> jogosList = new ArrayList<Jogo>();
+        // query
+        String selectQuery = "SELECT nome_jogo, classificacao_jogo, categorias.categoria, produtoras.produtora FROM "
+                + TABELA_JOGOS + ", " + TABELA_CATEGORIAS + ", " + TABELA_PRODUTORAS + " WHERE categorias.cod_categoria=jogos.cod_categoria" +
+                " AND produtoras.cod_produtora=jogos.cod_produtora" +
+                " AND cod_jogo=" + 1 + "";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Percorendo o resultado da query
+        if (cursor.moveToFirst()) {
+            do {
+                Jogo jogo = new Jogo();
+                jogo.set_nome_jogo(cursor.getString(0));
+                jogo.set_classificacao_jogo(cursor.getDouble(1));
+                jogo.set_cod_categoria(cursor.getString(2));
+                jogo.set_cod_produtora(cursor.getString(3));
+                // Adicionado o contacto
+                jogosList.add(jogo);
+            } while (cursor.moveToNext());
+        }
+        return jogosList;
+    }
 }

@@ -30,5 +30,11 @@ public class FragmentLocal extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, categoriaListFragment).commit();
         }
 
+        if( buttonName.equals("produtora")){
+            ProdutoraListFragmnet produtoraListFragmnet = new ProdutoraListFragmnet();
+            produtoraListFragmnet.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, produtoraListFragmnet).commit();
+        }
+
     }
 }
