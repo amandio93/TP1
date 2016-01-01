@@ -24,5 +24,11 @@ public class FragmentLocal extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, listaDeJogosFragment).commit();
         }
 
+        if( buttonName.equals("categoria")){
+            CategoriaListFragment categoriaListFragment = new CategoriaListFragment();
+            categoriaListFragment.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, categoriaListFragment).commit();
+        }
+
     }
 }

@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btnGameList = (Button) findViewById(R.id.btnGameList);
+        /*Button btnGameList = (Button) findViewById(R.id.btnGameList);
         Button btnCategoria = (Button) findViewById(R.id.btnCategoria);
         Button btnProdutora = (Button) findViewById(R.id.btnProdutora);
+        btnGameList.setOnClickListener(myOnlyhandler);
+        btnCategoria.setOnClickListener(myOnlyhandler);
+        btnProdutora.setOnClickListener(myOnlyhandler);*/
 
-        //btnGameList.setOnClickListener(myOnlyhandler);
-        //btnCategoria.setOnClickListener(myOnlyhandler);
-        //btnProdutora.setOnClickListener(myOnlyhandler);
 
 
     }
