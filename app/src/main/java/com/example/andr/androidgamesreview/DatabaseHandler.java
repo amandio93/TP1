@@ -184,10 +184,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<Jogo> getAllJogos(String CodJogo) {
         List<Jogo> jogosList = new ArrayList<Jogo>();
         // query
-        String selectQuery = "SELECT nome_jogo, classificacao_jogo, categorias.categoria, produtoras.produtora FROM "
+        String selectQuery = "SELECT nome_jogo, classificacao_jogo, categorias.categoria, produtoras.produtora, " +
+                " descricao_jogo, nome_imagem_jogo, link_video_jogo FROM "
                 + TABELA_JOGOS + ", " + TABELA_CATEGORIAS + ", " + TABELA_PRODUTORAS + " WHERE categorias.cod_categoria=jogos.cod_categoria" +
                 " AND produtoras.cod_produtora=jogos.cod_produtora" +
-                " AND cod_jogo=" + 1 + "";
+                " AND cod_jogo=" + CodJogo + "";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // Percorendo o resultado da query
@@ -198,6 +199,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 jogo.set_classificacao_jogo(cursor.getDouble(1));
                 jogo.set_cod_categoria(cursor.getString(2));
                 jogo.set_cod_produtora(cursor.getString(3));
+                jogo.set_descricao_jogo(cursor.getString(4));
+                jogo.set_nome_imagem_jogo(cursor.getString(5));
+                jogo.set_link_video_jogo(cursor.getString(6));
                 // Adicionado o contacto
                 jogosList.add(jogo);
             } while (cursor.moveToNext());

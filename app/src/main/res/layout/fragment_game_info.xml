@@ -45,8 +45,7 @@
             <ImageView
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:id="@+id/imageView"
-                android:background="#ffffff" />
+                android:id="@+id/imageView" />
         </LinearLayout>
 
         <LinearLayout
@@ -137,7 +136,7 @@
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/button"
+            android:id="@+id/btnVideo"
             android:background="@drawable/youtube" />
     </LinearLayout>
 

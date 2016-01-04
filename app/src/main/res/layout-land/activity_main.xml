@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.andr.androidgamesreview.MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/bkgreenw"
+    android:nestedScrollingEnabled="false">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_weight="0.9">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:id="@+id/layoutLogo"
+            android:background="@drawable/logogreen1"
+            android:layout_marginBottom="10dp">
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/layoutButton"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lista de Jogos"
+                android:id="@+id/btnGameList"
+                android:layout_marginTop="12dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:onClick="btnGameList_OnClick" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produtoras"
+                android:id="@+id/btnProdutora"
+                android:layout_weight="1"
+                android:layout_marginTop="12dp"
+                android:layout_margin="10dp"
+                android:background="#ffffff"
+                android:onClick="btnProdutora_OnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categorias"
+                android:id="@+id/btnCategoria"
+                android:layout_weight="1"
+                android:layout_marginTop="12dp"
+                android:layout_margin="10dp"
+                android:background="#ffffff"
+                android:onClick="btnCategoria_OnClick" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"></LinearLayout>
+
+</LinearLayout>
