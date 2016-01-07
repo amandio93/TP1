@@ -42,6 +42,7 @@ public class GameInfo extends Fragment {
     public String nomeImagem;
     public String linkVideo;
 
+
     public GameInfo() {
         // Required empty public constructor
     }

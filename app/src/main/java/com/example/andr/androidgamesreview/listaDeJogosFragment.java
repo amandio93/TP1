@@ -1,5 +1,6 @@
 package com.example.andr.androidgamesreview;
 
+import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
@@ -18,6 +19,10 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class listaDeJogosFragment extends ListFragment {
+
+    private String nameGamePortrait;
+    private String nameGameLand;
+    private String gameName;
 
     public listaDeJogosFragment() {
         // Required empty public constructor
@@ -48,14 +53,23 @@ public class listaDeJogosFragment extends ListFragment {
         args.putString(GameInfo.ARG_POSITION, String.valueOf(position));
         gameInfoFragment.setArguments(args);
 
+        gameName =  getString(position);
+
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         // Replace whatever is in the fragment_container view with this fragment,
         // and add the transaction to the back stack so the user can navigate back
-        transaction.replace(R.id.fragment_container, gameInfoFragment);
-        transaction.addToBackStack(null);
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            transaction.replace(R.id.frag_cont2, gameInfoFragment);
+            //falta o return pro menu
+        }else{
+            transaction.replace(R.id.fragment_container, gameInfoFragment);
+            transaction.addToBackStack(null);
+        }
+
         // Commit the transaction
         transaction.commit();
 
 
     }
+
 }
