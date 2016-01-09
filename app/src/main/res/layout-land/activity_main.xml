@@ -9,8 +9,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.andr.androidgamesreview.MainActivity"
     android:orientation="vertical"
-    android:background="#000000"
-    android:nestedScrollingEnabled="false">
+    android:nestedScrollingEnabled="false"
+    android:background="@drawable/bktryland2">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -42,26 +42,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lista de Jogos"
-                android:id="@+id/btnGameList"
-                android:layout_marginTop="12dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:onClick="btnGameList_OnClick" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="1">
 
             <Button
                 android:layout_width="wrap_content"
@@ -73,6 +54,17 @@
                 android:layout_margin="10dp"
                 android:background="#ffffff"
                 android:onClick="btnProdutora_OnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lista de Jogos"
+                android:id="@+id/btnGameList"
+                android:layout_marginTop="12dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:onClick="btnGameList_OnClick" />
 
             <Button
                 android:layout_width="wrap_content"

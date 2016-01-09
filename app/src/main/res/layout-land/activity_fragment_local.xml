@@ -9,7 +9,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="horizontal"
     tools:context="com.example.andr.androidgamesreview.FragmentLocal"
-    android:id="@+id/conteiner">
+    android:id="@+id/conteiner"
+    android:background="@drawable/bktryland2">
 
 
     <LinearLayout
@@ -23,6 +24,6 @@
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:id="@+id/frag_cont2"></LinearLayout>
 </LinearLayout>

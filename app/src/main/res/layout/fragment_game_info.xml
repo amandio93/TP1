@@ -1,13 +1,17 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.andr.androidgamesreview.GameInfo"
     android:weightSum="1"
     android:orientation="vertical"
-    android:background="#000000">
+    android:fillViewport="false">
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/info">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,8 +21,9 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp">
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="match_parent"
@@ -28,14 +33,16 @@
                 android:id="@+id/txtNomeJogo"
                 android:layout_gravity="top|center_vertical"
                 android:textAlignment="center"
-                android:textColor="#ffffff"
-                android:background="#A1BF37" />
+                android:textColor="#A1BF37"
+                android:textStyle="bold"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="178dp">
+            android:layout_height="178dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -120,7 +127,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1">
 
             <TextView
@@ -136,18 +143,27 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
+            android:layout_height="0dp"
             android:layout_marginTop="5dp"
-            android:background="#A1BF37">
+            android:background="#ffffff"
+            android:layout_weight="1"
+            android:layout_gravity="bottom">
 
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/btnVideo"
                 android:background="@drawable/youtube" />
+
+            <Button
+                android:layout_width="47dp"
+                android:layout_height="46dp"
+                android:id="@+id/btnGooglePlay"
+                android:background="@drawable/googleplay"
+                android:layout_margin="2dp" />
         </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</LinearLayout>

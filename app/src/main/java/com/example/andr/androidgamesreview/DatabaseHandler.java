@@ -52,17 +52,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Criando as tabelas
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE_PODUTORAS = "CREATE TABLE " + TABELA_PRODUTORAS + "("
+        String CREATE_TABLE_PODUTORAS = "CREATE TABLE IF NOT EXISTS " + TABELA_PRODUTORAS + "("
                 + KEY_COD_PRODUTORA + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + KEY_NOME_PRODUTORA + " TEXT NOT NULL" + ")";
         db.execSQL(CREATE_TABLE_PODUTORAS);
 
-        String CREATE_TABLE_CATEGORIAS = "CREATE TABLE " + TABELA_CATEGORIAS + "("
+        String CREATE_TABLE_CATEGORIAS = "CREATE TABLE IF NOT EXISTS " + TABELA_CATEGORIAS + "("
                 + KEY_COD_CATEGORIA + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + KEY_NOME_CATEGORIA + " TEXT NOT NULL" + ")";
         db.execSQL(CREATE_TABLE_CATEGORIAS);
 
-        String CREATE_TABLE_JOGOS = "CREATE TABLE " + TABELA_JOGOS + "("
+        String CREATE_TABLE_JOGOS = "CREATE TABLE IF NOT EXISTS " + TABELA_JOGOS + "("
                 + KEY_COD_JOGO + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + KEY_NOME_JOGO + " TEXT NOT NULL,"
                 + KEY_DESCRICAO_JOGO + " TEXT NOT NULL,"

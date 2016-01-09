@@ -1,6 +1,7 @@
 package com.example.andr.androidgamesreview;
 
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -36,7 +38,20 @@ public class listaDeJogosFragment extends ListFragment {
         DatabaseHandler db = new DatabaseHandler(getContext());
         List<Jogo> jogos = db.getAllJogos();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1){
+            @Override
+            public View getView(int position, View convertView,
+                                ViewGroup parent) {
+                View view =super.getView(position, convertView, parent);
+
+                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+
+            /*YOUR CHOICE OF COLOR*/
+                textView.setTextColor(Color.WHITE);
+
+                return view;
+            }
+        };
         for (Jogo cn : jogos) {
             adapter.add(cn.get_nome_jogo());
         }
@@ -53,7 +68,7 @@ public class listaDeJogosFragment extends ListFragment {
         args.putString(GameInfo.ARG_POSITION, String.valueOf(position));
         gameInfoFragment.setArguments(args);
 
-        gameName =  getString(position);
+        gameName =  String.valueOf(position);
 
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         // Replace whatever is in the fragment_container view with this fragment,
@@ -65,10 +80,11 @@ public class listaDeJogosFragment extends ListFragment {
             transaction.replace(R.id.fragment_container, gameInfoFragment);
             transaction.addToBackStack(null);
         }
-
         // Commit the transaction
         transaction.commit();
+    }
 
+    private void checkOrientationChange(){
 
     }
 

@@ -2,6 +2,7 @@ package com.example.andr.androidgamesreview;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,20 @@ public class ProdutoraListFragmnet extends ListFragment {
         DatabaseHandler db = new DatabaseHandler(getContext());
         List<Produtora> produtoras = db.getAllProdutoras();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1){
+            @Override
+            public View getView(int position, View convertView,
+                                ViewGroup parent) {
+                View view =super.getView(position, convertView, parent);
+
+                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+
+            /*YOUR CHOICE OF COLOR*/
+                textView.setTextColor(Color.WHITE);
+
+                return view;
+            }
+        };
         for (Produtora cn : produtoras) {
             adapter.add(cn.get_nome_produtora());
         }
