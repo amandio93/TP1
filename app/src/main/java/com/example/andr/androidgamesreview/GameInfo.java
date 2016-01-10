@@ -33,6 +33,7 @@ public class GameInfo extends Fragment {
     public TextView txtDescricao;
     public ImageView imgVjogo;
     public Button btnVideo;
+    public Button btnStore;
 
     public String nomeJogo;
     public String classificacaoJogo;
@@ -41,6 +42,7 @@ public class GameInfo extends Fragment {
     public String descricao;
     public String nomeImagem;
     public String linkVideo;
+    public String linkStore;
 
 
     public GameInfo() {
@@ -75,6 +77,7 @@ public class GameInfo extends Fragment {
         txtDescricao = (TextView)view.findViewById(R.id.txtDescricao);
         imgVjogo = (ImageView)view.findViewById(R.id.imageView);
         btnVideo = (Button)view.findViewById(R.id.btnVideo);
+        btnStore = (Button)view.findViewById(R.id.btnGooglePlay);
 
 
         /*argsInt = argsInt +1;
@@ -93,6 +96,7 @@ public class GameInfo extends Fragment {
             descricao = cn.get_descricao_jogo();
             nomeImagem = cn.get_nome_imagem_jogo();
             linkVideo = cn.get_link_video_jogo();
+            linkStore = cn.get_link_store_jogo();
         }
 
         txtNomeJogo.setText(nomeJogo);
@@ -121,6 +125,16 @@ public class GameInfo extends Fragment {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkVideo)));
                 } catch (Exception ex) {
                     Toast.makeText(getContext(), "Não foi possível ver o video!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnStore.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkStore)));
+                } catch (Exception ex) {
+                    Toast.makeText(getContext(), "Não foi possível aceder ao jogo na Google Play Store!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,4 +1,4 @@
-package com.example.andr.androidgamesreview;
+package com.example.andr.androidgamesreview.Model;
 
 /**
  * Created by amand on 31/12/2015.

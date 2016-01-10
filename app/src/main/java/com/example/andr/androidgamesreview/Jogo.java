@@ -16,6 +16,7 @@ public class Jogo {
     double _classificacao_jogo;
     String _nome_imagem_jogo;
     String _link_video_jogo;
+    String _link_store_jogo;
     String _cod_produtora;
     String _cod_categoria;
 
@@ -23,20 +24,21 @@ public class Jogo {
     }
 
     public Jogo(String nome_jogo, String descricao_jogo, double classificacao_jogo,
-                String nome_imagem_jogo, String link_video_jogo, String cod_produtora, String cod_categoria){
+                String nome_imagem_jogo, String link_video_jogo, String link_store_jogo, String cod_produtora, String cod_categoria){
 
         this._nome_jogo = nome_jogo;
         this._descricao_jogo = descricao_jogo;
         this._classificacao_jogo = classificacao_jogo;
         this._nome_imagem_jogo = nome_imagem_jogo;
         this._link_video_jogo = link_video_jogo;
+        this._link_store_jogo = link_store_jogo;
         this._cod_produtora = cod_produtora;
         this._cod_categoria = cod_categoria;
 
     }
 
     public Jogo(int cod_jogo, String nome_jogo, String descricao_jogo, double classificacao_jogo,
-                    String nome_imagem_jogo, String link_video_jogo, String cod_produtora, String cod_categoria){
+                    String nome_imagem_jogo, String link_video_jogo, String link_store_jogo, String cod_produtora, String cod_categoria){
 
         this._cod_jogo = cod_jogo;
         this._nome_jogo = nome_jogo;
@@ -44,6 +46,7 @@ public class Jogo {
         this._classificacao_jogo = classificacao_jogo;
         this._nome_imagem_jogo = nome_imagem_jogo;
         this._link_video_jogo = link_video_jogo;
+        this._link_store_jogo = link_store_jogo;
         this._cod_produtora = cod_produtora;
         this._cod_categoria = cod_categoria;
 
@@ -71,6 +74,10 @@ public class Jogo {
 
     public String get_link_video_jogo() {
         return _link_video_jogo;
+    }
+
+    public String get_link_store_jogo() {
+        return _link_store_jogo;
     }
 
     public String get_cod_produtora() {
@@ -103,6 +110,10 @@ public class Jogo {
 
     public void set_link_video_jogo(String _link_video_jogo) {
         this._link_video_jogo = _link_video_jogo;
+    }
+
+    public void set_link_store_jogo(String _link_store_jogo) {
+        this._link_store_jogo = _link_store_jogo;
     }
 
     public void set_cod_produtora(String _cod_produtora) {

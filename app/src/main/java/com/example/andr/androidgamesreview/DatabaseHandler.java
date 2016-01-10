@@ -5,8 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import android.widget.ArrayAdapter;
+
+import com.example.andr.androidgamesreview.Model.Categoria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +43,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_CLASSIFICACAO_JOGO = "classificacao_jogo";
     private static final String KEY_NOME_IMAGEM_JOGO = "nome_imagem_jogo";
     private static final String KEY_LINK_VIDEO_JOGO = "link_video_jogo";
+    private static final String KEY_LINK_STORE_JOGO = "link_store_jogo";
 
 
     public DatabaseHandler(Context context) {
@@ -69,6 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_CLASSIFICACAO_JOGO + " DOUBLE NOT NULL,"
                 + KEY_NOME_IMAGEM_JOGO + " TEXT,"
                 + KEY_LINK_VIDEO_JOGO + " TEXT,"
+                + KEY_LINK_STORE_JOGO + " TEXT,"
                 + KEY_COD_PRODUTORA + " INTEGER NOT NULL,"
                 + KEY_COD_CATEGORIA + " INTEGER NOT NULL,"
                 + "FOREIGN KEY (" + KEY_COD_PRODUTORA + ")" +
@@ -118,6 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_CLASSIFICACAO_JOGO, jogo.get_classificacao_jogo());
         values.put(KEY_NOME_IMAGEM_JOGO, jogo.get_nome_imagem_jogo());
         values.put(KEY_LINK_VIDEO_JOGO, jogo.get_link_video_jogo());
+        values.put(KEY_LINK_STORE_JOGO, jogo.get_link_store_jogo());
         values.put(KEY_COD_PRODUTORA, jogo.get_cod_produtora());
         values.put(KEY_COD_CATEGORIA, jogo.get_cod_categoria());
         // Inserindo Registo
@@ -185,7 +188,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         List<Jogo> jogosList = new ArrayList<Jogo>();
         // query
         String selectQuery = "SELECT nome_jogo, classificacao_jogo, categorias.categoria, produtoras.produtora, " +
-                " descricao_jogo, nome_imagem_jogo, link_video_jogo FROM "
+                " descricao_jogo, nome_imagem_jogo, link_video_jogo, link_store_jogo FROM "
                 + TABELA_JOGOS + ", " + TABELA_CATEGORIAS + ", " + TABELA_PRODUTORAS + " WHERE categorias.cod_categoria=jogos.cod_categoria" +
                 " AND produtoras.cod_produtora=jogos.cod_produtora" +
                 " AND cod_jogo=" + CodJogo + "";
@@ -202,6 +205,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 jogo.set_descricao_jogo(cursor.getString(4));
                 jogo.set_nome_imagem_jogo(cursor.getString(5));
                 jogo.set_link_video_jogo(cursor.getString(6));
+                jogo.set_link_store_jogo(cursor.getString(7));
                 // Adicionado o contacto
                 jogosList.add(jogo);
             } while (cursor.moveToNext());

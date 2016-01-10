@@ -20,13 +20,13 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class listaDeJogosFragment extends ListFragment {
+public class JogoListFragment extends ListFragment {
 
     private String nameGamePortrait;
     private String nameGameLand;
     private String gameName;
 
-    public listaDeJogosFragment() {
+    public JogoListFragment() {
         // Required empty public constructor
     }
 
@@ -61,6 +61,7 @@ public class listaDeJogosFragment extends ListFragment {
     }
 
     public void onListItemClick(ListView l, View v, int position, long id) {
+
 
         // Create fragment and give it an argument specifying the article it should show
         GameInfo gameInfoFragment = new GameInfo();
