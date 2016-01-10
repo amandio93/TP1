@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import java.util.List;
+import com.example.andr.androidgamesreview.Model.DatabaseInsert;
 
+/**
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: MainActivity
+ * Data entrega: 22/01/2016
+ */
 public class MainActivity extends AppCompatActivity {
 
     public String buttonName;
@@ -16,32 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*Button btnGameList = (Button) findViewById(R.id.btnGameList);
-        Button btnCategoria = (Button) findViewById(R.id.btnCategoria);
-        Button btnProdutora = (Button) findViewById(R.id.btnProdutora);
-        btnGameList.setOnClickListener(myOnlyhandler);
-        btnCategoria.setOnClickListener(myOnlyhandler);
-        btnProdutora.setOnClickListener(myOnlyhandler);*/
 
         DatabaseInsert dbInsert = new DatabaseInsert(this);
 
     }
-
-    /*View.OnClickListener myOnlyhandler = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch(v.getId()) {
-                case R.id.btnGameList:
-                    buttonName = "gameList";
-                    break;
-                case R.id.btnCategoria:
-                    buttonName = "categoria";
-                    break;
-                case R.id.btnProdutora:
-                    buttonName = "produtora";
-                    break;
-            }
-        }
-    };*/
 
     public void btnGameList_OnClick(View view){
         Intent fragmentLocal = new Intent(this, FragmentLocal.class);
@@ -60,9 +43,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentLocal.putExtra("btnName", "produtora");
         startActivity(fragmentLocal);
     }
-
-
-
-
 
 }

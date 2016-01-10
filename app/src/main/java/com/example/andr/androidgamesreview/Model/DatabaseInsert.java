@@ -1,13 +1,14 @@
-package com.example.andr.androidgamesreview;
+package com.example.andr.androidgamesreview.Model;
 
 import android.content.Context;
-
-import com.example.andr.androidgamesreview.Model.Categoria;
 
 import java.util.List;
 
 /**
- * Created by amand on 10/01/2016.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: DatabaseInsert
+ * Data entrega: 22/01/2016
  */
 public class DatabaseInsert {
 

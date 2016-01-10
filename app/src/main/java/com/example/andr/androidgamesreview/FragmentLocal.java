@@ -6,6 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+/**
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: FragmentLocal
+ * Data entrega: 22/01/2016
+ */
 public class FragmentLocal extends AppCompatActivity {
 
     private String buttonName;

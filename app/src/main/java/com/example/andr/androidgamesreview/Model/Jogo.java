@@ -1,4 +1,4 @@
-package com.example.andr.androidgamesreview;
+package com.example.andr.androidgamesreview.Model;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,7 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.List;
 
 /**
- * Created by amand on 31/12/2015.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: Jogo
+ * Data entrega: 22/01/2016
  */
 public class Jogo {
 
@@ -25,7 +28,6 @@ public class Jogo {
 
     public Jogo(String nome_jogo, String descricao_jogo, double classificacao_jogo,
                 String nome_imagem_jogo, String link_video_jogo, String link_store_jogo, String cod_produtora, String cod_categoria){
-
         this._nome_jogo = nome_jogo;
         this._descricao_jogo = descricao_jogo;
         this._classificacao_jogo = classificacao_jogo;
@@ -34,12 +36,10 @@ public class Jogo {
         this._link_store_jogo = link_store_jogo;
         this._cod_produtora = cod_produtora;
         this._cod_categoria = cod_categoria;
-
     }
 
     public Jogo(int cod_jogo, String nome_jogo, String descricao_jogo, double classificacao_jogo,
                     String nome_imagem_jogo, String link_video_jogo, String link_store_jogo, String cod_produtora, String cod_categoria){
-
         this._cod_jogo = cod_jogo;
         this._nome_jogo = nome_jogo;
         this._descricao_jogo = descricao_jogo;
@@ -49,7 +49,6 @@ public class Jogo {
         this._link_store_jogo = link_store_jogo;
         this._cod_produtora = cod_produtora;
         this._cod_categoria = cod_categoria;
-
     }
 
     public int get_cod_jogo() {

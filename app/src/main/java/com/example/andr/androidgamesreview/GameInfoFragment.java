@@ -1,9 +1,7 @@
 package com.example.andr.androidgamesreview;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,13 +15,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.andr.androidgamesreview.Model.DatabaseHandler;
+import com.example.andr.androidgamesreview.Model.Jogo;
+
 import java.util.List;
 
-
 /**
- * A simple {@link Fragment} subclass.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: GameInfoFragment
+ * Data entrega: 22/01/2016
  */
-public class GameInfo extends Fragment {
+public class GameInfoFragment extends Fragment {
 
     static String ARG_POSITION = "position";
     public TextView txtNomeJogo;
@@ -45,8 +48,7 @@ public class GameInfo extends Fragment {
     public String linkStore;
 
 
-    public GameInfo() {
-        // Required empty public constructor
+    public GameInfoFragment() {
     }
 
 
@@ -55,20 +57,11 @@ public class GameInfo extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_info, container, false);
 
-        /*Bundle args = getArguments();
-        Integer argsInt = args.getInt(ARG_POSITION);
-        GameInfo gI = new GameInfo();
-        gI.setArguments(args);
-        String x = gI.getArguments().toString();*/
-
         String x = "";
         if (getArguments() != null) {
             Integer pos = Integer.valueOf(getArguments().getString(ARG_POSITION)) + 1;
             x = String.valueOf(pos);
         }
-
-
-       // Log.d("Arg Position", argsInt.toString());
 
         txtNomeJogo = (TextView)view.findViewById(R.id.txtNomeJogo);
         txtClassificacao = (TextView)view.findViewById(R.id.txtClassificacao);
@@ -78,10 +71,6 @@ public class GameInfo extends Fragment {
         imgVjogo = (ImageView)view.findViewById(R.id.imageView);
         btnVideo = (Button)view.findViewById(R.id.btnVideo);
         btnStore = (Button)view.findViewById(R.id.btnGooglePlay);
-
-
-        /*argsInt = argsInt +1;
-        String id = argsInt.toString();*/
 
         DatabaseHandler db = new DatabaseHandler(getContext());
         List<Jogo> jogos = db.getAllJogos(x);
@@ -118,7 +107,6 @@ public class GameInfo extends Fragment {
             imgVjogo.setImageDrawable(res2);
         }
 
-
         btnVideo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
@@ -138,7 +126,6 @@ public class GameInfo extends Fragment {
                 }
             }
         });
-
 
         return view;
     }

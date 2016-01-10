@@ -1,32 +1,32 @@
 package com.example.andr.androidgamesreview;
 
 
-import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.andr.androidgamesreview.Model.DatabaseHandler;
+import com.example.andr.androidgamesreview.Model.Produtora;
+
 import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: ProdutoraListFragment
+ * Data entrega: 22/01/2016
  */
 public class ProdutoraListFragmnet extends ListFragment {
 
 
     public ProdutoraListFragmnet() {
-        // Required empty public constructor
     }
 
 
@@ -39,15 +39,10 @@ public class ProdutoraListFragmnet extends ListFragment {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1){
             @Override
-            public View getView(int position, View convertView,
-                                ViewGroup parent) {
+            public View getView(int position, View convertView, ViewGroup parent) {
                 View view =super.getView(position, convertView, parent);
-
                 TextView textView=(TextView) view.findViewById(android.R.id.text1);
-
-            /*YOUR CHOICE OF COLOR*/
                 textView.setTextColor(Color.WHITE);
-
                 return view;
             }
         };

@@ -1,13 +1,15 @@
 package com.example.andr.androidgamesreview.Model;
 
 /**
- * Created by amand on 31/12/2015.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: Categoria
+ * Data entrega: 22/01/2016
  */
 public class Categoria {
 
     int _cod_categoria;
     String _nome_categoria;
-
 
     public Categoria(){
     }

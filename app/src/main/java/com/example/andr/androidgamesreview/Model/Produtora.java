@@ -1,16 +1,17 @@
-package com.example.andr.androidgamesreview;
+package com.example.andr.androidgamesreview.Model;
 
 /**
- * Created by amand on 31/12/2015.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: Produtora
+ * Data entrega: 22/01/2016
  */
 public class Produtora {
 
     int _cod_produtora;
     String _nome_produtora;
 
-
     public Produtora(){
-
     }
 
     public Produtora(String nome_produtora){

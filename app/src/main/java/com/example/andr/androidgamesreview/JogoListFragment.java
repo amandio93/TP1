@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.andr.androidgamesreview.Model.DatabaseHandler;
+import com.example.andr.androidgamesreview.Model.Jogo;
+
 import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: JogosListFragment
+ * Data entrega: 22/01/2016
  */
 public class JogoListFragment extends ListFragment {
 
@@ -27,28 +32,20 @@ public class JogoListFragment extends ListFragment {
     private String gameName;
 
     public JogoListFragment() {
-        // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         DatabaseHandler db = new DatabaseHandler(getContext());
         List<Jogo> jogos = db.getAllJogos();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1){
             @Override
-            public View getView(int position, View convertView,
-                                ViewGroup parent) {
+            public View getView(int position, View convertView, ViewGroup parent) {
                 View view =super.getView(position, convertView, parent);
-
                 TextView textView=(TextView) view.findViewById(android.R.id.text1);
-
-            /*YOUR CHOICE OF COLOR*/
                 textView.setTextColor(Color.WHITE);
-
                 return view;
             }
         };
@@ -62,26 +59,20 @@ public class JogoListFragment extends ListFragment {
 
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-
-        // Create fragment and give it an argument specifying the article it should show
-        GameInfo gameInfoFragment = new GameInfo();
+        GameInfoFragment gameInfoFragment = new GameInfoFragment();
         Bundle args = new Bundle();
-        args.putString(GameInfo.ARG_POSITION, String.valueOf(position));
+        args.putString(GameInfoFragment.ARG_POSITION, String.valueOf(position));
         gameInfoFragment.setArguments(args);
 
         gameName =  String.valueOf(position);
 
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             transaction.replace(R.id.frag_cont2, gameInfoFragment);
-            //falta o return pro menu
         }else{
             transaction.replace(R.id.fragment_container, gameInfoFragment);
             transaction.addToBackStack(null);
         }
-        // Commit the transaction
         transaction.commit();
     }
 
