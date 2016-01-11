@@ -5,6 +5,10 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+
+import java.util.zip.Inflater;
 
 /**
  * André Amândio
@@ -15,6 +19,9 @@ import android.util.Log;
 public class FragmentLocal extends AppCompatActivity {
 
     private String buttonName;
+    private FrameLayout fragContaierPortrait;
+    private LinearLayout fragContainerLand1;
+    private LinearLayout fragContainerLand2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,17 @@ public class FragmentLocal extends AppCompatActivity {
         buttonName = intent.getStringExtra("btnName");
         Log.d("btnName", buttonName);
 
-        checkVerital();
+        fragContaierPortrait = (FrameLayout)findViewById(R.id.fragment_container);
+        fragContainerLand1 = (LinearLayout)findViewById(R.id.frag_cont1);
+        fragContainerLand2 = (LinearLayout)findViewById(R.id.frag_cont2);
+
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
+                return;
+            }
+            checkVerital();
+        }
+
         checkHorizontal();
 
     }
